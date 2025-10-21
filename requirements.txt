@@ -1,0 +1,16 @@
+
+python-dotenv
+Flask
+gunicorn
+langchain==0.3.27
+langchain-core
+langchain-community
+langchain-openai==0.2.5
+pydantic==2.9.2
+langsmith>=0.3.45
+langchain_anthropic
+bs4
+requests
+datetime
+playwright
+flask_cors
