@@ -1,54 +1,33 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f9fc;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column; /* Change to column to stack header above the form */
-    align-items: center; /* Center the form and header */
-}
+name: Deploy Flask App
 
-h1 {
-    color: #007bff; /* Style for the header */
-    text-align: center;
-    margin-bottom: 20px; /* Space between header and form */
-}
+on:
+  push:
+    branches: [main]
 
-form {
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-form input[type="text"],
-form input[type="email"],
-form input[type="submit"] {
-    width: 100%;
-    padding: 10px 12px;
-    margin: 10px 0 20px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-form label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-form input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.3'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Install Playwright browsers
+      run: |
+        python -m playwright install --with-deps
+    - name: Run Flask App
+      env:
+        FLASK_APP: a.py
+      run: flask run --host=0.0.0.0 --port=5000
 
 
 
