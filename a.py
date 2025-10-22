@@ -108,7 +108,7 @@ def GPT():
         tools = [AquilaTool()]
         
         # Create an instance of the wrapper
-        agent = create_tool_calling_agent(
+        agent = create_openai_calling_agent(
             llm=llm,
             prompt=prompt,
             tools=tools
