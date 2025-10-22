@@ -308,5 +308,5 @@ Brazil +55 11 9 1468 0145"""})
 #         print()
 #     return render_template('button.html')
 if __name__ == '__main__':
-    port = int(os.getenv('PORT'))  # Render provides this automatically
-    app.run(host="0.0.0.0", port=port)
+   port = int(os.environ.get('PORT', 5000))
+   app.run(host='0.0.0.0', port=port)
