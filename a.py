@@ -161,7 +161,7 @@ Brazil +55 11 9 1468 0145"""})
                     # b=str(nm)+str(m)
                     print(str(structured_response[v1+1:f1]))
                     print(structured_response)
-                    return f'{structured_response[v1+1:f1]} , {render_template("fl1.html")}'
+                    return f'{structured_response[v1+1:f1]} , {render_template("fl.html")}'
                     
         except:
                 print(structured_response)
@@ -177,7 +177,7 @@ Brazil +55 11 9 1468 0145"""})
     #         return f'{jsonify({"error": "Error parsing response", "details": str(e)}), 500}'
     #     else:
         #         return "Error parsing response", e, "Raw Response - ", raw_response
-    return render_template("fl1.html")
+    return render_template("fl.html")
 # # example: access emails from Admissions page
 
 # @app.route("/l")
