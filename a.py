@@ -161,7 +161,7 @@ Brazil +55 11 9 1468 0145"""})
                     # b=str(nm)+str(m)
                     print(str(structured_response[v1+1:f1]))
                     print(structured_response)
-                    return f'{structured_response[v1+1:f1]} , {render_template("fl.html")}'
+                    return f'{structured_response[v1+len('summary'):f1]} , {render_template("fl.html")}'
                     
         except:
                 print(structured_response)
